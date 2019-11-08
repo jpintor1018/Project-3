@@ -50,4 +50,4 @@ insert into Restaurant_Tables(tableID, numOfChairs)
 values(12, 8);
 
 insert into Reservations(dateOfReservation, timeSlot, custID, tableID)
-values('2019-12-10', '18:00:00', 1, 1);
+values('2019-12-10', '18:00', 1, 1);
