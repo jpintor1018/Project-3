@@ -18,8 +18,8 @@ primary key (tableID)
 
 create table Reservations(
 reservationID int not null auto_increment,
-dateOfReservation date not null,
-timeSlot time not null,
+dateOfReservation char(10) not null,
+timeSlot char(5) not null,
 custID int not null,
 tableID int not null,
 foreign key (custID) references	Customers(custID),
