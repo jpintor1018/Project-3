@@ -35,14 +35,16 @@ class Seating extends React.Component {
   
   render() {
     return (
-      <div>
-        <h1>Seat Reservation System</h1>
-        <DrawGrid 
-          seat = { this.state.seat }
-          available = { this.state.seatAvailable }
-          reserved = { this.state.seatReserved }
-          onClickData = { this.onClickData.bind(this) }
+      <div className="rest-">
+        <div className="rest-Layout">
+          <h1>Seat Reservation System</h1>
+             <DrawGrid 
+                  seat = { this.state.seat }
+                  available = { this.state.seatAvailable }
+                  reserved = { this.state.seatReserved }
+                  onClickData = { this.onClickData.bind(this) }
           />
+          </div>
       </div>
     )
   }
@@ -51,7 +53,7 @@ class Seating extends React.Component {
 class DrawGrid extends React.Component {
   render() {
     return (
-       <div className="container">
+       <div className="rest">
         <h2></h2>
         <table className="grid">
           <tbody>
@@ -79,7 +81,7 @@ class AvailableList extends React.Component {
   render() {
     const seatCount = this.props.available.length;
     return(
-      <div className="left">
+      <div className="rest-available">
         <h4>Available Seats: ({seatCount == 0? 'No seats available' : seatCount})</h4>
         <ul>
           {this.props.available.map( res => <li key={res} >{res}</li> )}
@@ -92,7 +94,7 @@ class AvailableList extends React.Component {
 class ReservedList extends React.Component {
   render() {
     return(
-      <div className="right">
+      <div className="rest-reserved">
         <h4>Reserved Seats: ({this.props.reserved.length})</h4>
         <ul>
           { this.props.reserved.map(res => <li key={res} >{res}</li>) }
