@@ -2,20 +2,39 @@
 h1 {
   text-align: center;
 }
-
-.container {
-  width: 600px;
+.rest-{
+  padding:50px;
+}
+.rest-Layout{
+  background-color:lightgrey;
+  width: 700px;
+  height: 1000px;
   margin: auto;
+  float:right;
+  padding:50px;
+}
+.rest{
+  background-color:burlywood;
+  height:500px;
+  
 }
 
 .grid td {
   width: 80px;
-  height: 50px;
-  padding: 50px 30px;
-  border: 2px solid orange;
+  height: 80px;
+  font-size: 10px;
+  /* padding: 50px 30px; */
+  border: 2px solid blue;
+  border-radius:50px;
   text-align: center;
-  float: left;
+  float:right;
   margin: 5px;
+}
+.rest-available{
+float:left;
+}
+.rest-reserved{
+  float:right;
 }
 
 .grid td:hover {
@@ -24,7 +43,7 @@ h1 {
 }
 
 .reserved {
-  background: orange;
+  background: lightcoral;
   color: #fff;
   display: inline-block;
 }
