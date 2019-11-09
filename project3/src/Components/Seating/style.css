@@ -15,7 +15,8 @@ h1 {
 }
 .rest{
   background-color:burlywood;
-  height:700px;
+  height:500px;
+  
 }
 
 .grid td {
@@ -24,8 +25,9 @@ h1 {
   font-size: 10px;
   /* padding: 50px 30px; */
   border: 2px solid blue;
+  border-radius:50px;
   text-align: center;
-  float: right;
+  float:right;
   margin: 5px;
 }
 .rest-available{
