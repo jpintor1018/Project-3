@@ -12,7 +12,7 @@ class MyApp extends Component {
   render() {
     return (
       <div className="Date-">
-          <div className="Date-Layout">
+          <div className="Date-Layout-align-right">
         <DateTimePicker
           onChange={this.onChange}
           value={this.state.date}
