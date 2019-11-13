@@ -6,14 +6,14 @@ class Seating extends React.Component {
     super();
       this.state = {
       seat: [
-        'Front1','Front2','Front3',
-        'Middle1','Middle2','Middle3',
-        'Back1','Back2','Back3'
+        'Table 1','Table 2','Table 3',
+        'Table 4','Table 5','Table 6',
+        'Table 7','Table 8','Table 9'
       ],
       seatAvailable: [
-        'Front1','Front2','Front3',
-        'Middle1','Middle2','Middle3',
-        'Back1','Back2','Back3'
+        'Table 1','Table 2','Table 3',
+        'Table 4','Table 5','Table 6',
+        'Table 7','Table 8','Table 9'
       ],
       seatReserved: []
     }
@@ -23,12 +23,12 @@ class Seating extends React.Component {
     if(this.state.seatReserved.indexOf(seat) > -1 ) {
       this.setState({
         seatAvailable: this.state.seatAvailable.concat(seat),
-        seatReserved: this.state.seatReserved.filter(res => res != seat)
+        seatReserved: this.state.seatReserved.filter(res => res !== seat)
       })
     } else {
       this.setState({
         seatReserved: this.state.seatReserved.concat(seat),
-        seatAvailable: this.state.seatAvailable.filter(res => res != seat)
+        seatAvailable: this.state.seatAvailable.filter(res => res !== seat)
       })
     }
   }
@@ -54,7 +54,7 @@ class DrawGrid extends React.Component {
   render() {
     return (
        <div className="rest">
-        <h2></h2>
+        <h2>hello</h2>
         <table className="grid">
           <tbody>
               <tr>
@@ -82,7 +82,7 @@ class AvailableList extends React.Component {
     const seatCount = this.props.available.length;
     return(
       <div className="rest-available">
-        <h4>Available Seats: ({seatCount == 0? 'No seats available' : seatCount})</h4>
+        <h4>Available Seats: ({seatCount === 0? 'No seats available' : seatCount})</h4>
         <ul>
           {this.props.available.map( res => <li key={res} >{res}</li> )}
         </ul>

@@ -1,5 +1,5 @@
-.Date-{
-    width:400px;
+ .Date-{
+    width:300px;
     height:346px;
     background-color:lightcoral;
     text-align:center;
@@ -9,3 +9,7 @@
     height:250px;
    text-align: center;
 }
+
+.row{
+    width:100%;
+} 

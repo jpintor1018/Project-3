@@ -1,20 +1,17 @@
 
 h1 {
   text-align: center;
-}
-.rest-{
-  padding:50px;
-}
+ }
 .rest-Layout{
   background-color:lightgrey;
   width: 700px;
-  height: 1000px;
+  height: 700px;
   margin: auto;
   float:right;
   padding:50px;
 }
 .rest{
-  background-color:burlywood;
+  /* background-image:url("https://cdn.touchbistro.com/wp-content/uploads/2019/07/28-10-lotus-floorplan.jpg"); */
   height:500px;
   
 }
