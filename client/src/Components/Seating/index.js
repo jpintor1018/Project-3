@@ -1,23 +1,37 @@
 import React from 'react';
 import './style.css';
+import '../../routes/apiRoutes';
+import axios from 'axios';
+
+
+
 class Seating extends React.Component {
   
   constructor() {
     super();
       this.state = {
       seat: [
-        'Table 1','Table 2','Table 3',
-        'Table 4','Table 5','Table 6',
-        'Table 7','Table 8','Table 9'
+         1, 2, 3,
+         4, 5, 6,
+         7, 8, 9
       ],
       seatAvailable: [
-        'Table 1','Table 2','Table 3',
-        'Table 4','Table 5','Table 6',
-        'Table 7','Table 8','Table 9'
+       
       ],
       seatReserved: []
     }
   }
+
+  componentDidMount(){
+    axios.get('/api/available-tables',{
+        data: {
+          date: '2019-10-25',
+          time: '18:30',
+          partySize: 2
+        }
+      }).then(response => console.log(response))
+    }
+  
   
   onClickData(seat) {
     if(this.state.seatReserved.indexOf(seat) > -1 ) {

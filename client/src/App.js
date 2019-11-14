@@ -12,9 +12,9 @@ import './style.css';
 function App(){
     return(
         <div id="container">
+            {/* <Navbar /> */}
             {/* <Router>
       <div>
-        <Navbar />
           <Route exact path="/" component={About} />
           <Route exact path="/about" component={About} />
           <Route exact path="/discover" component={Discover} />
@@ -22,8 +22,8 @@ function App(){
       </div>
     </Router> */}
         <div className="row">
-                <div className="col xs={6}" id="date-html"><Date></Date></div>
-                <div className="col xs={6}" id="seating-html"><Seating></Seating></div>
+                <div className="col-s-2" id="date-html"><Date></Date></div>
+                <div className="col-lg-9" id="seating-html"><Seating></Seating></div>
                 
          </div> 
         </div>
