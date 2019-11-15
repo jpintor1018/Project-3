@@ -1,9 +1,10 @@
 import React from "react";
+import './style.css';
 
 function HelloBootstrap() {
   return (
-    <div className="container">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="container-nav">
+      <nav className="navbar navbar-expand-lg" id="navbar">
         <a className="navbar-brand" href="#">
           Navbar
         </a>
@@ -54,11 +55,6 @@ function HelloBootstrap() {
                   Something else here
                 </a>
               </div>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" href="#">
-                Disabled
-              </a>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
