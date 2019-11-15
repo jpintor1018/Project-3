@@ -19,7 +19,7 @@ class Parallax extends Component {
                 <Scene
                     ID={1}
                     scene={scene}
-                    img="/background-img2.jpg"
+                    img="https://us.123rf.com/450wm/viteethumb/viteethumb1801/viteethumb180100012/92938082-bar-de-mesa-superior-con-fondo-de-restaurante-blur-bar.jpg?ver=6"
                     title="SVG"
                     subTitle="REAL HOT"
                 />

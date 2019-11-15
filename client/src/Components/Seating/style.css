@@ -3,12 +3,14 @@ h1 {
   text-align: center;
  }
 .rest-Layout{
-  background-color:lightgrey;
+  background-color:rgba(186, 186, 186, 0.4);
   width: 700px;
   height: 700px;
   margin: auto;
   float:right;
   padding:50px;
+  position: relative;
+  left:35%;
 }
 .rest{
   /* background-image:url("https://cdn.touchbistro.com/wp-content/uploads/2019/07/28-10-lotus-floorplan.jpg"); */
