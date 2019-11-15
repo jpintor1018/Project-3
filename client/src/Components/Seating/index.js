@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import '../../routes/apiRoutes';
+// import '../../routes/apiRoutes';
 import axios from 'axios';
 
 
