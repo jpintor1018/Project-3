@@ -4,7 +4,6 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "^2.1.1",
@@ -12,11 +11,8 @@
     "axios": "^0.18.0",
     "react-calendar": "^2.19.2",
     "react-datepicker": "^2.10.0",
-    "react-datetime-picker": "^2.7.1"
-
-    "react-parallax-3d": "^0.1.2",
-    "react-scripts": "3.2.0"
-
+    "react-datetime-picker": "^2.7.1",
+    "react-parallax-3d": "^0.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
