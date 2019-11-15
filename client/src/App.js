@@ -7,7 +7,7 @@ import Parallax from './Components/Parallax';
 // import Discover from "./pages/Discover";
 // import About from "./pages/About";
 // import Search from "./pages/Search";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
 function App(){
