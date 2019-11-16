@@ -29,7 +29,7 @@ const orm = {
         const statement = "SELECT tableID FROM restaurant_tables WHERE numOfChairs >= ? and tableID not in (SELECT tableID FROM Reservations WHERE dateOfReservation = ? and timeSlot = ?)"
         connection.query(statement, [partySize, date, time], (err, data) => {
             if (err) throw err
-            console.log(data)
+            // console.log(data)
             cb(data)
         })
     }
