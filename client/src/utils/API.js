@@ -2,15 +2,31 @@ import axios from "axios"
 
 
 export default {
-    allReservations: function(){
-        return axios.get("/api/all-reservations")
-    },
-    availableTables: function(date, time, partySize){
+    allReservations: () => axios.get("/api/all-reservations"),
+    availableTables: (date, time, partySize) => axios.get("/api/available-tables/" + date + "/" + time + "/" + partySize),
+    makeReservation: (date, time, custID, table) => {
         const reservation = {
             date: date,
             time: time,
-            partySize: partySize
+            custID: custID,
+            table: table
         }
-        return axios.get("/api/available-tables", reservation)
+        axios.post("/api/make-reservation", reservation)
+    },
+    cancelReservation: resID => {
+        axios.delete("/api/cancel-reservation", {
+            data: {reservationID: resID}
+        })
+    },
+    confirmReservation: (name, email, date, time) => {
+        const confirmation = {
+            name: name,
+            email: email,
+            date: date,
+            time: time
+        }
+        axios.post("/confirm-reservation", confirmation)
+        .then("EMAIL SENT")
     }
+
 }
