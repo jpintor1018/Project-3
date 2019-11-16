@@ -1,30 +1,30 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Navbar from './Components/Navbar'
-import Seating from './Components/Seating';
-import Date from './Components/Date';
-import Parallax from './Components/Parallax';
-// import Discover from "./pages/Discover";
+import Home from './pages/Home'
+import Signup from './pages/Signup'
+import Signin from './pages/Signin'
+
+
+
+
 // import About from "./pages/About";
 // import Search from "./pages/Search";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
-function App(){
-    return(
-        <div className="main-body">
-            <Navbar />
-            <Parallax/>
-        <div id="container">
-        <div className="row">
-                <div className="col-s-2" id="date-html"><Date></Date></div>
-                <div className="col-lg-9" id="seating-html"><Seating></Seating></div>
-                
-         </div> 
-        </div>
-        </div>
-         
-        
+function App() {
+    return (
+        <Router>
+            <div className="main-body">
+                <Navbar />
+                <Switch>
+                    <Route exact path="/"  component={Home} />
+                    <Route exact path="/signup"  component={Signup} />
+                    <Route exact path="/signin"  component={Signin} />
+                </Switch> 
+            </div>
+        </Router>
     )
 }
 

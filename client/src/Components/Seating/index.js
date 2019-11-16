@@ -24,13 +24,7 @@ class Seating extends React.Component {
   }
 
   componentDidMount(){
-    axios.get('/api/available-tables',{
-        data: {
-          date: '2019-10-25',
-          time: '18:30',
-          partySize: 2
-        }
-      }).then(response => console.log(response))
+  
     }
   
   
