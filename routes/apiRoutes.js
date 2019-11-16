@@ -1,5 +1,6 @@
 const orm = require("../controllers/orm")
 const nodemailer = require('nodemailer');
+require("dotenv")
 
 module.exports = function (app) {
 
