@@ -29,6 +29,8 @@ export default {
         .then("EMAIL SENT")
     },
     allTables: () => axios.get("/api/all-tables"),
-    seatCustomer: (tableID) => axios.put("/api/seat-customer/" + tableID)
+    seatCustomer: (tableID, custID) => axios.put("/api/seat-customer/" + tableID + "/" + custID),
+    clearTable: tableID => axios.put("/api/clear-table/" + tableID),
+    openTables: () => axios.get("/api/open-tables")
     
 }

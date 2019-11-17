@@ -34,16 +34,32 @@ const orm = {
         })
     },
     selectAllTables: (cb) => {
-        const statement = "SELECT tableID, occupied FROM restaurant_tables"
+        const statement = "SELECT tableID, seatedCustID, c.firstName FROM restaurant_tables as t LEFT JOIN customers as c on c.custID = t.seatedCustID"
         connection.query(statement, (err, data) => {
             if (err) throw err
             console.log(data)
             cb(data)
         })
     },
-    seatCustomer: (tableID, cb) => {
+    seatCustomer: (tableID, custID, cb) => {
         console.log("TI: " , tableID)
-        const statement = "UPDATE restaurant_tables SET occupied = 1 WHERE tableID = " + tableID
+        const statement = "UPDATE restaurant_tables SET seatedCustID = ? WHERE tableID = ?"
+        connection.query(statement, [custID, tableID], (err, data) => {
+            if (err) throw err
+            console.log(data)
+            cb(data)
+        })
+    },
+    clearTable: (tableID, cb) => {
+        const statement = "UPDATE restaurant_tables SET seatedCustID = NULL WHERE tableID = ?"
+        connection.query(statement, [tableID], (err, data) => {
+            if (err) throw err
+            console.log(data)
+            cb(data)
+        })
+    },
+    selectOpenTables: cb => {
+        const statement = "SELECT tableID from restaurant_tables WHERE seatedCustID is NULL"
         connection.query(statement, (err, data) => {
             if (err) throw err
             console.log(data)
