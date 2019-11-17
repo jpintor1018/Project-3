@@ -30,7 +30,7 @@ class Host extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Tables</h1>
         <table className="table table-striped table-dark">
           <thead>
@@ -41,8 +41,17 @@ class Host extends React.Component {
           <tbody>
             {this.state.tables.map(table => (
               <tr key={table.tableID}>
+                  <td>
+                  <button
+                    key={table.tableID}
+                    onClick={() => console.log("clicked")}
+                    className="btn btn-danger clear"
+                  >
+                    Clear
+                  </button>
+                </td>
                 <td key={table.tableID}>{table.tableID}</td>
-                {table.occupied ? <td>Occupied</td> : <td>Available</td>}
+                {table.occupied ? <td style={{color:"red"}}><strong>Occupied</strong></td> : <td style={{color:"#28A745"}}><strong>Available</strong></td>}
               </tr>
             ))}
           </tbody>
@@ -70,7 +79,7 @@ class Host extends React.Component {
                     Seat
                   </button>
                 </td>
-                <td key={cust.custID}>{cust.custID}</td>
+                <td key={cust.custID}>{cust.firstName}</td>
                 <td key={cust.tableID}>{cust.tableID}</td>
                 <td key={cust.timeSlot}>{cust.timeSlot}</td>
               </tr>
