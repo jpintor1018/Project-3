@@ -28,6 +28,7 @@ class Host extends React.Component {
     .then(res => this.setState({waiting: waiting, tables: res.data})))
   }
 
+
   render() {
     return (
       <div className="container">
