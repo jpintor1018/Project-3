@@ -13,6 +13,7 @@ primary key (custID)
 create table Restaurant_Tables(
 tableID int not null,
 numOfChairs int not null,
+occupied boolean default false,
 primary key (tableID)
 );
 

@@ -5,7 +5,7 @@ const orm = {
         const statement = "SELECT * FROM Reservations"
         connection.query(statement, (err, data) => {
             if (err) throw err 
-            console.log(data)
+            // console.log(data)
             cb(data)
         })
     },
@@ -30,6 +30,23 @@ const orm = {
         connection.query(statement, [partySize, date, time], (err, data) => {
             if (err) throw err
             // console.log(data)
+            cb(data)
+        })
+    },
+    selectAllTables: (cb) => {
+        const statement = "SELECT tableID, occupied FROM restaurant_tables"
+        connection.query(statement, (err, data) => {
+            if (err) throw err
+            console.log(data)
+            cb(data)
+        })
+    },
+    seatCustomer: (tableID, cb) => {
+        console.log("TI: " , tableID)
+        const statement = "UPDATE restaurant_tables SET occupied = 1 WHERE tableID = " + tableID
+        connection.query(statement, (err, data) => {
+            if (err) throw err
+            console.log(data)
             cb(data)
         })
     }

@@ -40,14 +40,14 @@ values(8, 4);
 insert into Restaurant_Tables(tableID, numOfChairs)
 values(9, 4);
 
-insert into Restaurant_Tables(tableID, numOfChairs)
-values(10, 4);
-
-insert into Restaurant_Tables(tableID, numOfChairs)
-values(11, 8);
-
-insert into Restaurant_Tables(tableID, numOfChairs)
-values(12, 8);
+insert into Reservations(dateOfReservation, timeSlot, custID, tableID)
+values('2019-12-25', '18:00', 1, 4);
 
 insert into Reservations(dateOfReservation, timeSlot, custID, tableID)
-values('2019-12-10', '18:00', 1, 1);
+values('2019-12-25', '18:30', 2, 3);
+
+insert into Reservations(dateOfReservation, timeSlot, custID, tableID)
+values('2019-12-25', '19:00', 3, 2);
+
+insert into Reservations(dateOfReservation, timeSlot, custID, tableID)
+values('2019-12-25', '19:30', 4, 1);
