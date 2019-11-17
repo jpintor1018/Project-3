@@ -27,6 +27,8 @@ export default {
         }
         axios.post("/confirm-reservation", confirmation)
         .then("EMAIL SENT")
-    }
-
+    },
+    allTables: () => axios.get("/api/all-tables"),
+    seatCustomer: (tableID) => axios.put("/api/seat-customer/" + tableID)
+    
 }

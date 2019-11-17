@@ -8,6 +8,10 @@ module.exports = function (app) {
 
     app.get("/api/available-tables/:date/:time/:partySize", (req, res) => orm.selectAvailableTables(req.params.date, req.params.time, req.params.partySize, (data) => res.json(data)))
 
+    app.get("/api/all-tables", (req, res) => orm.selectAllTables(data => res.json(data)))
+
+    app.put("/api/seat-customer/:tableID", (req, res) => orm.seatCustomer(req.params.tableID, data => res.json(data)))
+
     app.post("/api/make-reservation", (req, res) => orm.makeReservation(req.body.date, req.body.time, req.body.custID, req.body.table, (data) => res.json(data)))
 
     app.delete("/api/cancel-reservation", (req, res) => {

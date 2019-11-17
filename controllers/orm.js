@@ -2,10 +2,10 @@ const connection = require("../Models/db_config")
 
 const orm = {
     selectAllRes: (cb) => {
-        const statement = "SELECT * FROM Reservations"
+        const statement = "SELECT r.*, c.firstName FROM Reservations as r INNER JOIN Customers as c on r.custID = c.custID order by r.timeSlot"
         connection.query(statement, (err, data) => {
             if (err) throw err 
-            console.log(data)
+            // console.log(data)
             cb(data)
         })
     },
@@ -30,6 +30,23 @@ const orm = {
         connection.query(statement, [partySize, date, time], (err, data) => {
             if (err) throw err
             // console.log(data)
+            cb(data)
+        })
+    },
+    selectAllTables: (cb) => {
+        const statement = "SELECT tableID, occupied FROM restaurant_tables"
+        connection.query(statement, (err, data) => {
+            if (err) throw err
+            console.log(data)
+            cb(data)
+        })
+    },
+    seatCustomer: (tableID, cb) => {
+        console.log("TI: " , tableID)
+        const statement = "UPDATE restaurant_tables SET occupied = 1 WHERE tableID = " + tableID
+        connection.query(statement, (err, data) => {
+            if (err) throw err
+            console.log(data)
             cb(data)
         })
     }
