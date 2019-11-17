@@ -13,8 +13,9 @@ primary key (custID)
 create table Restaurant_Tables(
 tableID int not null,
 numOfChairs int not null,
-occupied boolean default false,
-primary key (tableID)
+seatedCustID int default NULL,
+primary key (tableID),
+foreign key (seatedCustID) references Customers(custID)
 );
 
 create table Reservations(

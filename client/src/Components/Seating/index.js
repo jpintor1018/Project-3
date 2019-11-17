@@ -16,7 +16,7 @@ class Seating extends React.Component {
     API.availableTables("2019-12-25", "18:30", 2).then(res => {
       const availableTables = res.data.map(table => table.tableID);
       const reservedTables = this.state.seat.filter(
-        table => availableTables.indexOf(table) == -1
+        table => availableTables.indexOf(table) === -1
       );
       this.setState({
         seatAvailable: availableTables,

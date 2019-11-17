@@ -6,26 +6,57 @@ class Host extends React.Component {
     super();
     this.state = {
       waiting: [],
-      tables: []
+      ready: [],
+      tables: [],
+      openTables: []
     };
   }
 
   componentDidMount() {
     API.allReservations().then(res => this.setState({ waiting: res.data }));
     API.allTables().then(res => {
-      this.setState({ tables: res.data })
-      console.log(this.state.tables)
+      this.setState({ tables: res.data });
+    });
+    API.openTables().then(res => {
+      const availableTables = res.data.map(table => table.tableID);
+      this.setState({ openTables: availableTables});
     });
   }
 
   seatCustomer(cust) {
-      console.log("CUST", cust)
     const waiting = this.state.waiting.filter(
       customer => customer.custID !== cust.custID
     );
-    API.seatCustomer(cust.tableID)
-    .then(API.allTables()
-    .then(res => this.setState({waiting: waiting, tables: res.data})))
+    API.seatCustomer(cust.tableID, cust.custID).then(
+      API.allTables().then(res => {
+        this.setState({ waiting: waiting, tables: res.data });
+      })
+    );
+    API.openTables().then(res => {
+      const availableTables = res.data.map(table => table.tableID);
+      this.setState({ openTables: availableTables});
+    });
+  }
+
+  clearTable(tableID) {
+    this.checkTable(tableID);
+    API.clearTable(tableID).then(
+      API.allTables().then(res => {
+        this.setState({ tables: res.data });
+        this.checkTable(tableID);
+      })
+    );
+    API.openTables().then(res => {
+      const availableTables = res.data.map(table => table.tableID);
+      this.setState({ openTables: availableTables});
+    });
+  }
+
+  checkTable(tableID) {
+    API.openTables().then(res => {
+      const availableTables = res.data.map(table => table.tableID);
+      return availableTables.indexOf(tableID);
+    });
   }
 
   render() {
@@ -35,23 +66,37 @@ class Host extends React.Component {
         <table className="table table-striped table-dark">
           <thead>
             <tr>
+              <th scope="col">Clear Table</th>
               <th scope="col">Table#</th>
+              <th scope="col">Customer</th>
             </tr>
           </thead>
           <tbody>
             {this.state.tables.map(table => (
               <tr key={table.tableID}>
+                {table.seatedCustID ? (
                   <td>
-                  <button
-                    key={table.tableID}
-                    onClick={() => console.log("clicked")}
-                    className="btn btn-danger clear"
-                  >
-                    Clear
-                  </button>
-                </td>
+                    <button
+                      key={table.tableID}
+                      onClick={() => this.clearTable(table.tableID)}
+                      className="btn btn-danger clear"
+                    >
+                      Clear
+                    </button>
+                  </td>
+                ) : (
+                  <td></td>
+                )}
                 <td key={table.tableID}>{table.tableID}</td>
-                {table.occupied ? <td style={{color:"red"}}><strong>Occupied</strong></td> : <td style={{color:"#28A745"}}><strong>Available</strong></td>}
+                {table.seatedCustID ? (
+                  <td style={{ color: "#DC3545" }}>
+                    <strong>{table.firstName}</strong>
+                  </td>
+                ) : (
+                  <td style={{ color: "#28A745" }}>
+                    <strong>Available</strong>
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>
@@ -62,7 +107,7 @@ class Host extends React.Component {
           <thead>
             <tr>
               <th scope="col">Seat Customer</th>
-              <th scope="col">CustID</th>
+              <th scope="col">Customer</th>
               <th scope="col">Table#</th>
               <th scope="col">Time</th>
             </tr>
@@ -70,15 +115,19 @@ class Host extends React.Component {
           <tbody>
             {this.state.waiting.map(cust => (
               <tr key={cust.custID}>
-                <td>
-                  <button
-                    key={cust.custID}
-                    onClick={() => this.seatCustomer(cust)}
-                    className="btn btn-success seat"
-                  >
-                    Seat
-                  </button>
-                </td>
+                {this.state.openTables.indexOf(cust.tableID) !== -1 ? (
+                  <td>
+                    <button
+                      key={cust.custID}
+                      onClick={() => this.seatCustomer(cust)}
+                      className="btn btn-success seat"
+                    >
+                      Seat
+                    </button>
+                  </td>
+                ) : (
+                  <td></td>
+                )}
                 <td key={cust.custID}>{cust.firstName}</td>
                 <td key={cust.tableID}>{cust.tableID}</td>
                 <td key={cust.timeSlot}>{cust.timeSlot}</td>

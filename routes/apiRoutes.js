@@ -10,7 +10,11 @@ module.exports = function (app) {
 
     app.get("/api/all-tables", (req, res) => orm.selectAllTables(data => res.json(data)))
 
-    app.put("/api/seat-customer/:tableID", (req, res) => orm.seatCustomer(req.params.tableID, data => res.json(data)))
+    app.get("/api/open-tables", (req, res) => orm.selectOpenTables(data => res.json(data)))
+
+    app.put("/api/seat-customer/:tableID/:custID", (req, res) => orm.seatCustomer(req.params.tableID, req.params.custID, data => res.json(data)))
+
+    app.put("/api/clear-table/:tableID", (req, res) => orm.clearTable(req.params.tableID, data => res.json(data)))
 
     app.post("/api/make-reservation", (req, res) => orm.makeReservation(req.body.date, req.body.time, req.body.custID, req.body.table, (data) => res.json(data)))
 
@@ -22,7 +26,7 @@ module.exports = function (app) {
     app.post("/confirm-reservation", (req, res) => {
 
         let hour = parseInt(req.body.time.substring(0,2))
-        let min = parseInt(req.body.time.substring(3,5))
+        let min = req.body.time.substring(3,5)
         console.log(hour, min)
         let amPM = "PM"
 
