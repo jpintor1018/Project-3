@@ -1,9 +1,6 @@
 import React from 'react';
 import './style.css';
 
-import API from '../../utils/API';
-import axios from 'axios';
-
 
 
 class Seating extends React.Component {
