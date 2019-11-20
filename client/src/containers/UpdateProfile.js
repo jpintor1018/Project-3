@@ -15,7 +15,7 @@ import {
   saveButton,
   loginButton,
   inputStyle,
-} from '../components';
+} from '../Components';
 
 const loading = {
   margin: '1em',
