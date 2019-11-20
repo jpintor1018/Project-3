@@ -6,10 +6,16 @@ class Host extends React.Component {
     super();
     this.state = {
       waiting: [],
-      ready: [],
       tables: [],
       openTables: []
     };
+  }
+
+  updateTables() {
+    API.openTables().then(res => {
+      const availableTables = res.data.map(table => table.tableID);
+      this.setState({ openTables: availableTables });
+    });
   }
 
   componentDidMount() {
@@ -17,10 +23,7 @@ class Host extends React.Component {
     API.allTables().then(res => {
       this.setState({ tables: res.data });
     });
-    API.openTables().then(res => {
-      const availableTables = res.data.map(table => table.tableID);
-      this.setState({ openTables: availableTables});
-    });
+    this.updateTables();
   }
 
   seatCustomer(cust) {
@@ -32,10 +35,7 @@ class Host extends React.Component {
         this.setState({ waiting: waiting, tables: res.data });
       })
     );
-    API.openTables().then(res => {
-      const availableTables = res.data.map(table => table.tableID);
-      this.setState({ openTables: availableTables});
-    });
+    this.updateTables();
   }
 
   clearTable(tableID) {
@@ -46,10 +46,7 @@ class Host extends React.Component {
         this.checkTable(tableID);
       })
     );
-    API.openTables().then(res => {
-      const availableTables = res.data.map(table => table.tableID);
-      this.setState({ openTables: availableTables});
-    });
+    this.updateTables();
   }
 
   checkTable(tableID) {
@@ -126,7 +123,7 @@ class Host extends React.Component {
                     </button>
                   </td>
                 ) : (
-                  <td></td>
+                  <td style={{ color: "#DC3545" }}><strong>Table Occupied</strong></td>
                 )}
                 <td key={cust.custID}>{cust.firstName}</td>
                 <td key={cust.tableID}>{cust.tableID}</td>
