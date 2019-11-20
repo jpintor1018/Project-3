@@ -19,7 +19,7 @@ import {
   HeaderBar,
   linkStyle,
   forgotButton,
-} from '../components';
+} from '../Components';
 
 const loading = {
   margin: '1em',
