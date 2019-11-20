@@ -13,7 +13,7 @@ import {
   forgotButton,
   inputStyle,
   SubmitButtons,
-} from '../Components';
+} from '..';
 
 const loading = {
   margin: '1em',

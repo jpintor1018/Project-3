@@ -4,13 +4,13 @@ import {
   LinkButtons,
   loginButton,
   registerButton,
-} from '../Components';
+} from '..';
 
 const title = {
   pageTitle: 'Home Screen',
 };
 
-const Home = () => (
+const Auth = () => (
   <div className="home-page">
     <HeaderBar title={title} />
     <LinkButtons
@@ -22,4 +22,4 @@ const Home = () => (
   </div>
 );
 
-export default Home;
+export default Auth;

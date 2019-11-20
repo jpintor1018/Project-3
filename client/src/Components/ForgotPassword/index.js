@@ -10,7 +10,7 @@ import {
   forgotButton,
   inputStyle,
   HeaderBar,
-} from '../Components';
+} from '..';
 
 const title = {
   pageTitle: 'Forgot Password Screen',
