@@ -29,7 +29,7 @@
  *         - password
  */
 
-module.exports = (sequelize, type) => sequelize.define('user', {
+module.exports = (sequelize, type) => sequelize.define('Customers', {
     id: {
       type: type.INTEGER,
       primaryKey: true,

@@ -8,7 +8,7 @@ else{
   host: "localhost",
   port: process.env.PORT || 3306,
   user: "root",
-  password: "bootcamp19",
+  password: "password",
   database: "Project3_db"
 });
 }

@@ -1,8 +1,8 @@
 import Sequelize from 'sequelize';
-import UserModel from './models/user';
+import UserModel from './models/customers';
 
-const sequelize = new Sequelize('users', 'test', 'test1234', {
-  host: 'db',
+const sequelize = new Sequelize('Customers', 'root', 'password', {
+  host: 'Project3_db',
   dialect: 'mysql',
 });
 
