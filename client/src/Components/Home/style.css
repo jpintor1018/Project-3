@@ -2,6 +2,8 @@
     padding: 20px 50px;
 }
 .main-body{
-    width:100%;
-    
+    width:auto;
+    padding-left:45px;
+    padding-right:45px;
 }
+

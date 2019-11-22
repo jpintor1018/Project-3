@@ -14,7 +14,7 @@ import "./style.css";
 const Home = () => (
     <div className="main-body">
         <Navbar />
-        <Parallax/>
+    <div className="parallax"> <Parallax/> </div>
     <div id="container">
     <div className="row">
             <div className="col-s-2" id="date-html"><Date></Date></div>

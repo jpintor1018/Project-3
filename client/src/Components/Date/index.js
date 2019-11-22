@@ -16,6 +16,7 @@ class MyApp extends Component {
         <DateTimePicker
           onChange={this.onChange}
           value={this.state.date}
+          isCalendarOpen={true}
           
         />
         </div>
