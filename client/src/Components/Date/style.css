@@ -1,10 +1,11 @@
  .Date-{
     width:300px;
-    height:346px;
     text-align:center;
     position: absolute;
     bottom:2px;
     left: 13%;
+    background-color: rgba(220, 219, 219, 0.4);
+    color:lightcoral;
 }
 .Date-Layout{
     width:300px;
