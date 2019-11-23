@@ -9,14 +9,13 @@ class Parallax extends Component {
  
     render() {
         const scene = this.state.scene;
- 
         return (
             <Fragment>
-                <Scene
+                <Scene 
                     ID={0}
                     scene={scene}
                     img="http://businessinedmonton.com/wp-content/uploads/2018/07/iStock-685668626WEB.jpg"
-                    title="WELCOME"
+                    title= "WELCOME"   
                  
                 />
             </Fragment>
