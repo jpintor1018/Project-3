@@ -73,7 +73,7 @@ class DrawGrid extends React.Component {
   render() {
     return (
       <div className="rest">
-        <h2> hello </h2>{" "}
+        <h2> WELCOME </h2>{" "}
         <table className="grid">
           <tbody>
             <tr>

@@ -14,14 +14,8 @@ import "./style.css";
 const Home = () => (
     <div className="main-body">
         <Navbar />
-    <div className="parallax"> <Parallax/> </div>
-    <div id="container">
-    <div className="row">
-            <div className="col-s-2" id="date-html"><Date></Date></div>
-            <div className="col-lg-9" id="seating-html"><Seating></Seating></div>
 
-     </div>
-    </div>
+    <div className="parallax"> <Parallax/>  </div>
     </div>
     // <Router>
     //   <div>
