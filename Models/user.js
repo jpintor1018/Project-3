@@ -29,26 +29,26 @@
  *         - password
  */
 
-module.exports = (sequelize, type) => sequelize.define('Customers', {
-    custID: {
-      type: type.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    firstName: type.STRING,
-    lastName: type.STRING,
-    email: {
-      type: type.STRING,
-      allowNull: false,
-    },
-    userName: {
-      type: type.STRING,
-      allowNull: false,
-    },
-    password: {
-      type: type.STRING,
-      allowNull: false,
-    },
-    resetPasswordToken: type.STRING,
-    resetPasswordExpires: type.DATE,
-  });
+module.exports = (sequelize, type) => sequelize.define('user', {
+  id: {
+    type: type.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  first_name: type.STRING,
+  last_name: type.STRING,
+  email: {
+    type: type.STRING,
+    allowNull: false,
+  },
+  username: {
+    type: type.STRING,
+    allowNull: false,
+  },
+  password: {
+    type: type.STRING,
+    allowNull: false,
+  },
+  resetPasswordToken: type.STRING,
+  resetPasswordExpires: type.DATE,
+});

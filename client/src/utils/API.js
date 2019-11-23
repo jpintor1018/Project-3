@@ -31,6 +31,7 @@ export default {
     allTables: () => axios.get("/api/all-tables"),
     seatCustomer: (tableID, custID) => axios.put("/api/seat-customer/" + tableID + "/" + custID),
     clearTable: tableID => axios.put("/api/clear-table/" + tableID),
-    openTables: () => axios.get("/api/open-tables")
+    openTables: () => axios.get("/api/open-tables"),
+    registerUser: (user) => axios.post("/registerUser", user)
     
 }

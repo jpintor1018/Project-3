@@ -1,6 +1,6 @@
 const orm = require("../controllers/orm")
 const nodemailer = require('nodemailer');
-require("dotenv")
+
 
 module.exports = function (app) {
 
@@ -16,12 +16,21 @@ module.exports = function (app) {
 
     app.put("/api/clear-table/:tableID", (req, res) => orm.clearTable(req.params.tableID, data => res.json(data)))
 
-    app.post("/api/make-reservation", (req, res) => orm.makeReservation(req.body.date, req.body.time, req.body.custID, req.body.table, (data) => res.json(data)))
+    app.post("/api/make-reservation", (req, res) => {
+        console.log(req.body)
+        orm.makeReservation(req.body.dateOfReservation, req.body.timeSlot, req.body.custID, req.body.tableID, (data) => res.json(data))
+    })
 
     app.delete("/api/cancel-reservation", (req, res) => {
         console.log(req.body)
         orm.cancelReservation(req.body.reservationID, (data) => res.json(data))
     })
+
+    // app.post("/registerUser"), (req, res) => {
+    //     console.log("Hello")
+    //     res.send("Hello")
+    
+    // }
 
     app.post("/confirm-reservation", (req, res) => {
 

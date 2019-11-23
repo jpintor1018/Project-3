@@ -1,9 +1,10 @@
 /* eslint-disable arrow-parens */
 /* eslint-disable no-console */
-// import passport from '../config/passport';
-const passport = require('../config/passport');
-// const passportFile = require('../config/passport')
+// import passport from 'passport';
 // import User from '../sequelize';
+
+const passport = require('passport');
+const User = require ('../sequelize');
 
 /**
  * @swagger
@@ -48,51 +49,43 @@ const passport = require('../config/passport');
 
 module.exports = app => {
   app.post('/registerUser', (req, res, next) => {
-    console.log(req.body)
-
     passport.authenticate('register', (err, user, info) => {
       if (err) {
         console.error(err);
       }
       if (info !== undefined) {
-        console.log("USER: ", user)
-        console.log("INFO: ", info)
         console.error(info.message);
         res.status(403).send(info.message);
       } else {
         // eslint-disable-next-line no-unused-vars
         req.logIn(user, error => {
-          console.log("USER: ", user);
+          console.log(user);
           const data = {
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             email: req.body.email,
             username: user.username,
           };
-          console.log("DATA: ", data);
-
-    //       User.findOne({
-    //         where: {
-    //           username: data.username,
-    //         },
-    //       }).then(user => {
-    //         console.log(user);
-    //         user
-    //           .update({
-    //             first_name: data.first_name,
-    //             last_name: data.last_name,
-    //             email: data.email,
-    //           })
-    //           .then(() => {
-    //             console.log('user created in db');
-    //             res.status(200).send({ message: 'user created' });
-    //           });
-    //       });
+          console.log(data);
+          User.findOne({
+            where: {
+              username: data.username,
+            },
+          }).then(user => {
+            console.log(user);
+            user
+              .update({
+                first_name: data.first_name,
+                last_name: data.last_name,
+                email: data.email,
+              })
+              .then(() => {
+                console.log('user created in db');
+                res.status(200).send({ message: 'user created' });
+              });
+          });
         });
       }
-      res.send("COOL")
-  
-      })(req, res, next);
-    })
-  }
-  
+    })(req, res, next);
+  });
+};

@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import API from "../../utils/API";
+import API from "../../utils/api";
 
 class Seating extends React.Component {
   constructor() {
@@ -12,31 +12,31 @@ class Seating extends React.Component {
     };
   }
 
-  componentDidMount() {
-    API.availableTables("2019-12-25", "18:30", 2).then(res => {
-      const availableTables = res.data.map(table => table.tableID);
-      const reservedTables = this.state.seat.filter(
-        table => availableTables.indexOf(table) === -1
-      );
-      this.setState({
-        seatAvailable: availableTables,
-        seatReserved: reservedTables
-      });
-    });
+  // componentDidMount() {
+  //   API.availableTables("2019-12-25", "18:30", 2).then(res => {
+  //     const availableTables = res.data.map(table => table.tableID);
+  //     const reservedTables = this.state.seat.filter(
+  //       table => availableTables.indexOf(table) === -1
+  //     );
+  //     this.setState({
+  //       seatAvailable: availableTables,
+  //       seatReserved: reservedTables
+  //     });
+  //   });
 
-    // API.allReservations()
+  //   // API.allReservations()
 
-    // API.makeReservation('2019-11-16', '19:00', 1, 1)
+  //   // API.makeReservation('2019-11-16', '19:00', 1, 1)
 
-    // API.cancelReservation(5)
+  //   // API.cancelReservation(5)
 
-    API.confirmReservation(
-      "Jesse",
-      "jesse.sosnicki@gmail.com",
-      "2019-11-20",
-      "18:00"
-    );
-  }
+  //   API.confirmReservation(
+  //     "Jesse",
+  //     "jesse.sosnicki@gmail.com",
+  //     "2019-11-20",
+  //     "18:00"
+  //   );
+  // }
 
   onClickData(seat) {
     if (this.state.seatReserved.indexOf(seat) > -1) {

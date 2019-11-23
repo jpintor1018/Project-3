@@ -1,17 +1,17 @@
 use Project3_db;
 
 
-insert into Customers(firstName, lastname, email, userName)
-values ('Jesse', 'Sosnicki', 'jesse.sosnicki@gmail.com', 'jsosnicki');
+insert into Customers(firstName, lastname, email, userName, password)
+values ('Jesse', 'Sosnicki', 'jesse.sosnicki@gmail.com', 'jsosnicki','password');
 
-insert into Customers(firstName, lastname, email, userName)
-values ('John', 'Pintor', 'jpintor@gmail.com', 'jpintor');
+insert into Customers(firstName, lastname, email, userName, password)
+values ('John', 'Pintor', 'jpintor@gmail.com', 'jpintor','password');
 
-insert into Customers(firstName, lastname, email, userName)
-values ('Orhys', 'Brown', 'obrown@gmail.com', 'obrown');
+insert into Customers(firstName, lastname, email, userName, password)
+values ('Orhys', 'Brown', 'obrown@gmail.com', 'obrown','password');
 
-insert into Customers(firstName, lastname, email, userName)
-values ('Andres', 'Urueta', 'aurueta@gmail.com', 'aurueta');
+insert into Customers(firstName, lastname, email, userName, password)
+values ('Andres', 'Urueta', 'aurueta@gmail.com', 'aurueta','password');
 
 insert into Restaurant_Tables(tableID, numOfChairs)
 values(1, 2);

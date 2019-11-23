@@ -1,4 +1,4 @@
-const connection = require("../Models/db_config")
+const connection = require("../models/db_config")
 
 const orm = {
     selectAllRes: (cb) => {
@@ -65,6 +65,23 @@ const orm = {
             console.log(data)
             cb(data)
         })
+    },
+    findUser: (username, cb) => {
+        const statement = "SELECT * from Customers WHERE userName = ?"
+        connection.query(statement, [username], (err, data) => {
+            if (err) throw err
+            console.log(data)
+            cb(data)
+        })
+    },
+    updateUser: (firstName, lastName, email, userName, cb) => {
+        const statement = "UPDATE Customers SET firstName = ?, lastName = ?, email = ? WHERE userName = ?"
+        connection.query(statement, [firstName, lastName, email, userName], (err, data) => {
+            if (err) throw err
+            console.log(data)
+            cb(data)
+        })
+
     }
 }
 

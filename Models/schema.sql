@@ -7,6 +7,9 @@ firstName varchar(30) not null,
 lastName varchar(30) not null,
 email varchar(30) not null,
 userName varchar(30) not null,
+password char(30) not null,
+resetPasswordToken char(255),
+resetPasswordExpires date,
 primary key (custID)
 );
 

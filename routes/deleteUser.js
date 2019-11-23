@@ -1,7 +1,9 @@
 /* eslint-disable no-console */
-import passport from 'passport';
-import User from '../sequelize';
+// import passport from 'passport';
+// import User from '../sequelize';
 
+const passport = require('passport');
+const User = require ('../sequelize');
 /**
  * @swagger
  * /deleteUser:
