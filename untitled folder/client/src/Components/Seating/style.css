@@ -1,0 +1,65 @@
+
+h1, h2 {
+  text-align: center;
+  color: lightcoral;
+ }
+.rest-Layout{
+  background-color:rgba(186, 186, 186, 0.4);
+  width: 700px;
+  height: 700px;
+  margin: auto;
+  float:right;
+  padding:50px;
+  position: relative;
+  left:35%;
+}
+.rest{
+  /* background-image:url("https://cdn.touchbistro.com/wp-content/uploads/2019/07/28-10-lotus-floorplan.jpg"); */
+  height:500px;
+  
+}
+
+.grid td {
+  width: 80px;
+  height: 80px;
+  font-size: 10px;
+  /* padding: 50px 30px; */
+  border: 2px solid blue;
+  border-radius:50px;
+  text-align: center;
+  float:right;
+  margin: 5px;
+}
+.rest-available{
+float:left;
+}
+.rest-reserved{
+  float:right;
+}
+
+.grid td:hover {
+  opacity: .7;
+  cursor: pointer;
+}
+
+.reserved {
+  background: lightcoral;
+  color: #fff;
+  display: inline-block;
+}
+
+.reserved::after {
+  content: 'RESERVED'
+}
+
+.available::after {
+  content: 'AVAILABLE'
+}
+
+.available {
+  color: #333;
+}
+
+li {
+  list-style: none;
+}

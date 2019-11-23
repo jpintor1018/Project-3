@@ -30,18 +30,18 @@
  */
 
 module.exports = (sequelize, type) => sequelize.define('Customers', {
-    id: {
+    custID: {
       type: type.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    first_name: type.STRING,
-    last_name: type.STRING,
+    firstName: type.STRING,
+    lastName: type.STRING,
     email: {
       type: type.STRING,
       allowNull: false,
     },
-    username: {
+    userName: {
       type: type.STRING,
       allowNull: false,
     },

@@ -1,0 +1,10 @@
+.navbar { 
+    background-color: lightblue;
+    width:100%;
+    border:solid;
+    border-top: 3px;
+    border-color: lightslategrey;
+}
+.nav-link,.navbar-brand{
+    color: rgb(33, 33, 33);
+}
